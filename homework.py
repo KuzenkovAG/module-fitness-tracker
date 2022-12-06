@@ -1,5 +1,4 @@
 from dataclasses import asdict, dataclass
-from typing import Type, Union
 
 
 @dataclass
@@ -11,6 +10,7 @@ class InfoMessage:
     distance: float
     speed: float
     calories: float
+
     MESSAGE = (
         'Тип тренировки: {training_type}; '
         'Длительность: {duration:.3f} ч.; '
@@ -69,13 +69,12 @@ class Running(Training):
 
     def get_spent_calories(self) -> float:
         """Получить количество затраченных калорий."""
-        result: float = (
+        return (
             (self.CALORIES_MEAN_SPEED_MULTIPLIER
              * self.get_mean_speed()
              + self.CALORIES_MEAN_SPEED_SHIFT) * self.weight
             / self.M_IN_KM * self.duration * self.MIN_IN_H
         )
-        return result
 
 
 class SportsWalking(Training):
@@ -101,13 +100,12 @@ class SportsWalking(Training):
         mean_speed_m_in_sec: float = (
             self.get_mean_speed() * self.KMH_IN_MSEC
         )
-        result: float = (
+        return (
             (self.CALORIES_WEIGHT_MULTIPLIER * self.weight
              + mean_speed_m_in_sec ** 2 / height_in_m
              * self.CALORIES_SPEED_HEIGHT_MULTIPLIER * self.weight)
             * self.duration * self.MIN_IN_H
         )
-        return result
 
 
 class Swimming(Training):
@@ -136,26 +134,24 @@ class Swimming(Training):
 
     def get_spent_calories(self) -> float:
         """Получить количество затраченных калорий."""
-        result: float = (
+        return (
             (self.get_mean_speed()
              + self.CALORIES_SPEED_HEIGHT_MULTIPLIER)
             * self.SWIMMING_COEFFICIENT * self.weight
             * self.duration
         )
-        return result
 
 
 def read_package(workout_type: str, data: list) -> Training:
     """Прочитать данные полученные от датчиков."""
-    training_type: dict[str, Type[Union[Swimming, Running, SportsWalking]]] = {
+    training_type: dict[str, Training] = {
         'RUN': Running,
         'WLK': SportsWalking,
         'SWM': Swimming
     }
     if workout_type in training_type:
         return training_type[workout_type](*data)
-    print('Не определен тип тренировки')
-    return Training(0, 0.0001, 0.0001)
+    raise ValueError('Не определен тип тренировки')
 
 
 def main(training: Training) -> None:
