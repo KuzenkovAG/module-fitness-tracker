@@ -56,7 +56,7 @@ Input data:
 ```
 | # | RUN | Description | units |
 | - | --- | ----------- | ----- |
-| 1 | 15000 | steps | ea |
+| 1 | 9000 | steps | ea |
 | 2 | 1 | duration | h |
 | 3 | 75 | weight | kg |
 | 4 | 180 | heigh of user | sm |
