@@ -54,7 +54,7 @@ Input data:
 ```sh
 'WLK', [9000, 1, 75, 180]
 ```
-| # | RUN | Description | units |
+| # | WLK | Description | units |
 | - | --- | ----------- | ----- |
 | 1 | 9000 | steps | ea |
 | 2 | 1 | duration | h |
