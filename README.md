@@ -18,19 +18,14 @@ As result it output information about:
 Install the dependencies.
 
 ```sh
-git clone ...
+git clone git@github.com:KuzenkovAG/module-fitness-tracker.git
 python3 -m venv venv
 pip install -r requirements.txt
+python3 fitness_tracker.py
 ```
 
 ## Usage
-Input data: 
-| Type | Description |
-| ---- | ----------- |
-| SWM | Swimming |
-| RUN | Run |
-| WLK | Sport Walking |
-
+#### Input data
 ```sh
 'SWM', [720, 1, 80, 25, 40]
 ```
@@ -42,6 +37,12 @@ Input data:
 | 4 | 25 | pool leight | m |
 | 5 | 40 | counts pool during training | ea |
 
+#### Output data
+```sh
+Training type: Swimming; Duration: 1.000 h.; Distance: 0.994 km; Avg. speed: 1.000 km/h; Spent kcal: 336.000.
+```
+
+#### Input data
 ```sh
 'RUN', [15000, 1, 75]
 ```
@@ -51,17 +52,34 @@ Input data:
 | 2 | 1 | duration | h |
 | 3 | 75 | weight | kg |
 
+#### Output data
+```sh
+Training type: Running; Duration: 1.000 h.; Distance: 9.750 km; Avg. speed: 9.750 km/h; Spent kcal: 797.805.
+```
+
+#### Input data
 ```sh
 'WLK', [9000, 1, 75, 180]
 ```
-| # | RUN | Description | units |
+| # | WLK | Description | units |
 | - | --- | ----------- | ----- |
-| 1 | 15000 | steps | ea |
+| 1 | 9000 | steps | ea |
 | 2 | 1 | duration | h |
 | 3 | 75 | weight | kg |
 | 4 | 180 | heigh of user | sm |
+
+#### Output data
+```sh
+Training type: SportsWalking; Duration: 1.000 h.; Distance: 5.850 km; Avg. speed: 5.850 km/h; Spent kcal: 349.252.
+```
+
+## Author
+
+[Alexey Kuzenkov]
 
 
 ## License
 
 MIT
+
+   [Alexey Kuzenkov]: <https://github.com/KuzenkovAG>
