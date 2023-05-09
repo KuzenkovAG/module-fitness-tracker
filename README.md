@@ -81,4 +81,5 @@ Training type: SportsWalking; Duration: 1.000 h.; Distance: 5.850 km; Avg. speed
 ## License
 
 MIT
+
    [Alexey Kuzenkov]: <https://github.com/KuzenkovAG>
