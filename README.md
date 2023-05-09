@@ -13,15 +13,31 @@ As result it output information about:
 - Realized calculation logic for calories of Training Swimming, Run, Sport Walking.
 
 
-## Installation
+#### Tested Python version
+3.7-3.9
 
-Install the dependencies.
+## Installation (windows)
+
+Clone repository
 
 ```sh
 git clone git@github.com:KuzenkovAG/module-fitness-tracker.git
-python3 -m venv venv
+```
+Install environment
+```sh
+python -m venv venv
+```
+Activate environment
+```sh
+source venv/Script/activate
+```
+Install requirements
+```sh
 pip install -r requirements.txt
-python3 fitness_tracker.py
+```
+Run script
+```sh
+python fitness_tracker.py
 ```
 
 ## Usage
