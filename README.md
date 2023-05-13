@@ -25,11 +25,14 @@ git clone git@github.com:KuzenkovAG/module-fitness-tracker.git
 ```
 Install environment
 ```sh
+cd module-fitness-tracker/
+```
+```sh
 python -m venv venv
 ```
 Activate environment
 ```sh
-source venv/Script/activate
+source venv/Scripts/activate
 ```
 Install requirements
 ```sh
